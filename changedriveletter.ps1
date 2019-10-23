@@ -9,7 +9,6 @@ foreach ($disk in get-wmiobject Win32_DiskDrive -Filter "Partitions = 0"){
 }
 sleep 10s
 label D:Data
-label Q:Quorum
 REG add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "PagingFiles" /t REG_MULTI_SZ /d "Q:\pagefile.sys 0 0" /f
 Restart-Computer -ComputerName $env:computername -Force
 sleep 120s
